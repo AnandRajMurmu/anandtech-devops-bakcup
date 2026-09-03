@@ -4,6 +4,8 @@
 
 **Document type:** Project-level source of truth
 
+**SSOT class:** Global — locked course outline and course-wide state
+
 **Status:** Active
 
 **Course-structure version:** 1.0
@@ -18,14 +20,16 @@
 |---|---|
 | Active section | Section 00 — Computer and IT Prerequisites |
 | Active unit | None; unit generation is not yet authorized |
-| Current phase | Section SSOT discussion |
+| Current phase | Section SSOT draft ready for owner review |
 | Active-section lock | Draft; not locked |
 | Approved Section 00 environment | Environment-independent explanation with safe, optional local inspection; no VM requirement |
-| Required deliverable | Review and lock `sections/00_computer_it_prerequisites/SSOT.md` |
+| Required deliverable | Review and explicitly lock `sections/00_computer_it_prerequisites/SSOT.md` |
 | Last accepted checkpoint | Course-wide section sequence and parallel workshop model locked |
 | Packaging permission | Not granted |
 
 The active task is section design. Learner-facing Unit 01 generation must not begin until the Section 00 SSOT is explicitly locked.
+
+The repository now includes a bounded Manager, SSOT Maker, Worker, and Reviewer runtime. Automation does not change curriculum authority: only the owner can lock a section SSOT or accept a completed section.
 
 ---
 
@@ -117,6 +121,9 @@ This direction is accepted at course-map level. Exact addressing, network stack,
 6. Only the requested unit or batch may be generated.
 7. A section ZIP requires a locked SSOT, complete validated content, and explicit packaging permission.
 8. The next major section does not begin before acceptance of the active section unless the user explicitly allows parallel planning.
+9. An SSOT lock is valid only when `workflow/state.json` records the owner, UTC time, and SHA-256 of the exact locked file.
+10. Worker and Reviewer autonomy is limited to one unit at a time and a bounded repair loop; exceeding the limit returns control to the owner.
+11. Slack messages are notifications, not approvals. A Slack delivery failure must not change curriculum state.
 
 ---
 
@@ -142,4 +149,4 @@ Not authorized now:
 | Version | Date | Change | Approval |
 |---|---|---|---|
 | 1.0 | 2026-09-02 | Locked course-wide section sequence and workshop direction; activated Section 00 SSOT discussion | Explicit user selection: “Lock, start Section 00” |
-
+| 1.1 | 2026-09-03 | Clarified global-versus-section SSOT roles and added agent lock, review-loop, and notification governance | Agent-system implementation requested by owner; no Section 00 lock implied |

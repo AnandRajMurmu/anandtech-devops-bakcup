@@ -36,6 +36,13 @@ Existing units are examples, not sources of truth.
 - If a requested change conflicts with a locked SSOT, stop and explain it.
 - Never invent missing curriculum decisions.
 - Do not package a ZIP unless explicitly requested.
+- `docs/project_SSOT.md` is the global SSOT; each section `SSOT.md` is authoritative only after explicit owner lock.
+- The SSOT Maker may edit only the active section PLAN and draft SSOT.
+- The Worker may edit only its assigned unit directory.
+- The Reviewer may write only its assigned report under `reviews/`.
+- The Manager alone updates `workflow/state.json` and coordinates Slack events.
+- A lock receipt is invalid if the current SSOT SHA-256 differs from the recorded digest.
+- Slack messages never count as owner approval.
 
 ## Writing standard
 

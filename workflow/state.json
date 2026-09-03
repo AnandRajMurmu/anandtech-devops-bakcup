@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "updated_at_utc": "2026-09-03T00:00:00Z",
+  "phase": "awaiting_ssot_lock",
+  "blocker": null,
+  "section": {
+    "number": "00",
+    "slug": "00_computer_it_prerequisites",
+    "title": "Computer and IT Prerequisites",
+    "directory": "sections/00_computer_it_prerequisites",
+    "plan_path": "sections/00_computer_it_prerequisites/PLAN.md",
+    "ssot_path": "sections/00_computer_it_prerequisites/SSOT.md",
+    "lock": {
+      "status": "draft",
+      "sha256": null,
+      "approved_by": null,
+      "approved_at_utc": null
+    },
+    "units": []
+  },
+  "notifications": {
+    "events": {}
+  }
+}
+
