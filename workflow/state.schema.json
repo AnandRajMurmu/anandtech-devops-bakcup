@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnandTech agent workflow state",
+  "type": "object",
+  "required": ["version", "phase", "section", "notifications"],
+  "properties": {
+    "version": {"const": 1},
+    "phase": {
+      "enum": [
+        "ssot_draft",
+        "awaiting_ssot_lock",
+        "ready_for_generation",
+        "generating",
+        "blocked",
+        "awaiting_owner_confirmation",
+        "accepted"
+      ]
+    },
+    "blocker": {"type": ["string", "null"]},
+    "section": {
+      "type": "object",
+      "required": ["number", "slug", "title", "directory", "plan_path", "ssot_path", "lock", "units"]
+    },
+    "notifications": {
+      "type": "object",
+      "required": ["events"],
+      "properties": {"events": {"type": "object"}}
+    }
+  }
+}
+
